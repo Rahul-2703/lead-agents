@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lead Agents | AI Creative Hub</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-low": "#1c1b1c",
+                        "on-primary-fixed": "#002022",
+                        "primary": "#dbfcff",
+                        "surface-dim": "#131314",
+                        "secondary": "#d0bcff",
+                        "outline-variant": "#3b494b",
+                        "on-secondary-container": "#c4abff",
+                        "inverse-surface": "#e5e2e3",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed": "#001f26",
+                        "on-background": "#e5e2e3",
+                        "surface-tint": "#00dbe9",
+                        "outline": "#849495",
+                        "on-secondary-fixed": "#23005c",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "surface": "#131314",
+                        "on-surface": "#e5e2e3",
+                        "surface-container-highest": "#353436",
+                        "surface-container": "#201f20",
+                        "surface-container-high": "#2a2a2b",
+                        "primary-container": "#00f0ff",
+                        "background": "#131314",
+                        "tertiary-fixed-dim": "#4cd7f6",
+                        "secondary-container": "#571bc1",
+                        "tertiary": "#e7f9ff",
+                        "tertiary-fixed": "#acedff",
+                        "on-tertiary-fixed-variant": "#004e5c",
+                        "inverse-on-surface": "#313031",
+                        "on-tertiary": "#003640",
+                        "on-primary-fixed-variant": "#004f54",
+                        "secondary-fixed": "#e9ddff",
+                        "primary-fixed": "#7df4ff",
+                        "on-secondary": "#3c0091",
+                        "on-primary": "#00363a",
+                        "error": "#ffb4ab",
+                        "primary-fixed-dim": "#00dbe9",
+                        "inverse-primary": "#006970",
+                        "error-container": "#93000a",
+                        "on-surface-variant": "#b9cacb",
+                        "on-tertiary-container": "#00687a",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "surface-container-lowest": "#0e0e0f",
+                        "surface-variant": "#353436",
+                        "on-primary-container": "#006970",
+                        "surface-bright": "#3a393a",
+                        "tertiary-container": "#8be7ff",
+                        "on-error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "sidebar-width": "280px",
+                        "card-gap": "20px",
+                        "container-padding": "24px",
+                        "gutter": "16px",
+                        "base": "8px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Sora"],
+                        "body-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Sora"],
+                        "label-caps": ["Inter"],
+                        "mono-label": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                        "mono-label": ["13px", { "lineHeight": "1.4", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body
+    class="bg-[#050506] text-on-surface font-body-md selection:bg-primary-fixed-dim/30 selection:text-primary-fixed overflow-x-hidden min-h-screen">
+
+    <!-- Global Layout Shell -->
+    <div class="flex min-h-screen w-full relative">
+
+        <!-- SIDEBAR NAV -->
+        <aside
+            class="fixed left-0 top-0 h-screen w-sidebar-width bg-surface-container-lowest/80 backdrop-blur-xl border-r border-white/10 shadow-2xl flex flex-col py-6 z-[60]">
+            <!-- Brand Header -->
+            <div class="px-6 mb-8 cursor-pointer" id="nav-brand">
+                <h1 class="font-display-lg text-headline-md font-bold text-primary-fixed tracking-tight">Lead Agents
+                </h1>
+                <p class="font-label-caps text-label-caps text-on-surface-variant mt-1 opacity-60">AI Creative Hub</p>
+            </div>
+
+            <!-- Navigation Items -->
+            <nav class="flex-1 flex flex-col space-y-1" id="sidebar-nav">
+                <a id="nav-dashboard"
+                    class="flex items-center gap-3 px-4 py-3 text-primary-fixed-dim font-bold border-l-4 border-primary-fixed bg-white/5 transition-all duration-200"
+                    href="#dashboard">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    <span class="font-body-md">Dashboard</span>
+                </a>
+                <a id="nav-bg-remover"
+                    class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-white/10 hover:backdrop-blur-md border-l-4 border-transparent transition-all duration-200"
+                    href="#bg-remover">
+                    <span class="material-symbols-outlined">layers_clear</span>
+                    <span class="font-body-md">Background Remover</span>
+                </a>
+                <a id="nav-watermark"
+                    class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-white/10 hover:backdrop-blur-md border-l-4 border-transparent transition-all duration-200"
+                    href="#watermark">
+                    <span class="material-symbols-outlined">branding_watermark</span>
+                    <span class="font-body-md">Watermark Remover</span>
+                </a>
+                <a id="nav-magic-layers"
+                    class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-white/10 hover:backdrop-blur-md border-l-4 border-transparent transition-all duration-200"
+                    href="#magic-layers">
+                    <span class="material-symbols-outlined">layers</span>
+                    <span class="font-body-md">Magic Layers</span>
+                </a>
+                <a id="nav-photo-enhancer"
+                    class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-white/10 hover:backdrop-blur-md border-l-4 border-transparent transition-all duration-200"
+                    href="#photo-enhancer">
+                    <span class="material-symbols-outlined">auto_fix_high</span>
+                    <span class="font-body-md">Photo Enhancer</span>
+                </a>
+                <a id="nav-compressor"
+                    class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:text-on-surface hover:bg-white/10 hover:backdrop-blur-md border-l-4 border-transparent transition-all duration-200"
+                    href="#image-compressor">
+                    <span class="material-symbols-outlined">compress</span>
+                    <span class="font-body-md">Image Compressor</span>
+                </a>
+            </nav>
+
+            <!-- Footer Nav -->
+            <div class="mt-auto pt-6 border-t border-white/5">
+                <div class="mt-4 px-4">
+                    <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                        <div
+                            class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden border border-primary-fixed-dim/30">
+                            <img class="w-full h-full object-cover" alt="Premium User Profile" src="./img/RAHUL.jpg" />
+                        </div>
+                        <div class="flex-1 overflow-hidden">
+                            <p class="text-sm font-bold truncate">Rahul</p>
+                            <p class="text-xs text-on-surface-variant truncate">Pro Plan User</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN WRAPPER -->
+        <div class="flex-1 ml-sidebar-width flex flex-col min-h-screen relative">
+
+            <!-- TOP APP BAR -->
+            <header
+                class="fixed top-0 right-0 w-[calc(100%-280px)] h-16 z-50 bg-surface/40 backdrop-blur-2xl border-b border-white/5 bg-gradient-to-r from-white/5 to-transparent flex justify-between items-center px-container-padding">
+                <div class="flex items-center gap-8">
+                    <div class="flex gap-6">
+                        <a class="text-primary-fixed-dim border-b-2 border-primary-fixed-dim pb-1 font-mono-label text-mono-label transition-all"
+                            href="#workspace">Workspace</a>
+                        <a class="text-on-surface-variant hover:text-on-surface font-mono-label text-mono-label transition-all"
+                            href="#assets">Assets</a>
+                        <a class="text-on-surface-variant hover:text-on-surface font-mono-label text-mono-label transition-all"
+                            href="#history">History</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <div class="relative group">
+                        <input
+                            class="bg-white/5 border border-white/10 rounded-full py-1.5 px-4 pr-10 text-sm w-48 focus:w-64 focus:border-primary-fixed-dim outline-none transition-all duration-300 text-on-surface"
+                            placeholder="Search assets..." type="text" />
+                        <span
+                            class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+                    </div>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-on-surface-variant hover:text-primary-fixed">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                    </button>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors text-on-surface-variant hover:text-primary-fixed">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </button>
+                    <div class="w-8 h-8 rounded-full overflow-hidden border border-white/20">
+                        <img class="w-full h-full object-cover" alt="User Profile"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv3GvXx1Jn_B0d0lNfdKYM7dFqc7tZYrAcThEqbujbLtTiD_pZky3Y2u0YKy1FxOyzUidpRsllWaa9Y5MDDCS4-Lv5yMvpKncav2f5vaGklg6UzYUsmEYE7zTmYN2z0HAYbaYouKDcV134C0EhZZW_R1_wUDFikK5z9KiknSWcBvdjOZyE8H28zKJn6Z7cJW9bkATaAezbCPULI5luCRkFVqs9WAwMR_Bj7hUW5CyEuyNAvfG56A5H" />
+                    </div>
+                </div>
+            </header>
+
+            <!-- VIEW PANELS CONTAINER -->
+            <main class="flex-1 mt-16 overflow-y-auto">
+
+                <!-- 1. DASHBOARD VIEW -->
+                <section id="view-dashboard"
+                    class="view-panel view-visible pt-8 pb-12 px-container-padding max-w-[1400px] mx-auto space-y-10">
+                    <!-- Hero Greeting -->
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h2 class="font-display-lg text-display-lg text-white mb-2">Welcome back, Alex.</h2>
+                            <p class="text-on-surface-variant text-body-lg">Ready to craft your next masterpiece? Your
+                                AI agents are standing by.</p>
+                        </div>
+                    </div>
+
+                    <!-- Quick Tool Bento Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-card-gap">
+                        <!-- Background Remover Card -->
+                        <div id="card-bg-remover"
+                            class="glass-panel glint-border p-6 rounded-xl flex flex-col gap-4 group glass-card-glow cursor-pointer">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary-fixed-dim">
+                                <span class="material-symbols-outlined text-3xl"
+                                    style="font-variation-settings: 'FILL' 1;">layers_clear</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-headline-md text-xl mb-1 group-hover:text-primary-fixed transition-colors">
+                                    Background Remover</h3>
+                                <p class="text-on-surface-variant text-sm">Clean cutouts in seconds using neural
+                                    isolation.</p>
+                            </div>
+                        </div>
+
+                        <!-- Watermark Remover Card -->
+                        <div id="card-watermark"
+                            class="glass-panel glint-border p-6 rounded-xl flex flex-col gap-4 group glass-card-glow cursor-pointer">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-secondary-container/10 flex items-center justify-center text-secondary">
+                                <span class="material-symbols-outlined text-3xl"
+                                    style="font-variation-settings: 'FILL' 1;">branding_watermark</span>
+                            </div>
+                            <div>
+                                <h3 class="font-headline-md text-xl mb-1 group-hover:text-secondary transition-colors">
+                                    Watermark Remover</h3>
+                                <p class="text-on-surface-variant text-sm">In-paint distracted areas with seamless AI
+                                    patches.</p>
+                            </div>
+                        </div>
+
+                        <!-- Magic Layers Card -->
+                        <div id="card-magic-layers"
+                            class="glass-panel glint-border p-6 rounded-xl flex flex-col gap-4 group glass-card-glow cursor-pointer">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-tertiary-container/10 flex items-center justify-center text-tertiary-fixed-dim">
+                                <span class="material-symbols-outlined text-3xl"
+                                    style="font-variation-settings: 'FILL' 1;">layers</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-headline-md text-xl mb-1 group-hover:text-tertiary-fixed-dim transition-colors">
+                                    Magic Layers</h3>
+                                <p class="text-on-surface-variant text-sm">Automated depth sensing for 3D stacking.</p>
+                            </div>
+                        </div>
+
+                        <!-- Photo Enhancer Card -->
+                        <div id="card-photo-enhancer"
+                            class="glass-panel glint-border p-6 rounded-xl flex flex-col gap-4 group glass-card-glow cursor-pointer">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary-fixed-dim">
+                                <span class="material-symbols-outlined text-3xl"
+                                    style="font-variation-settings: 'FILL' 1;">auto_fix_high</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-headline-md text-xl mb-1 group-hover:text-primary-fixed transition-colors">
+                                    Photo Enhancer</h3>
+                                <p class="text-on-surface-variant text-sm">Upscale and restore clarity to low-res media.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Image Compressor Card -->
+                        <div id="card-compressor"
+                            class="glass-panel glint-border p-6 rounded-xl flex flex-col gap-4 group glass-card-glow cursor-pointer">
+                            <div
+                                class="w-12 h-12 rounded-lg bg-primary-container/10 flex items-center justify-center text-primary-fixed-dim">
+                                <span class="material-symbols-outlined text-3xl"
+                                    style="font-variation-settings: 'FILL' 1;">compress</span>
+                            </div>
+                            <div>
+                                <h3
+                                    class="font-headline-md text-xl mb-1 group-hover:text-primary-fixed transition-colors">
+                                    Image Compressor</h3>
+                                <p class="text-on-surface-variant text-sm">Compress image file size to exact target KB size.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytics & Activity Row -->
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-card-gap">
+                        <!-- Usage Analytics -->
+                        <div class="lg:col-span-2 glass-panel glint-border p-8 rounded-2xl flex flex-col h-[400px]">
+                            <div class="flex justify-between items-center mb-8">
+                                <div>
+                                    <h3 class="font-headline-md text-2xl">Usage Analytics</h3>
+                                    <p class="text-on-surface-variant text-sm">Your creative throughput over the last 7
+                                        days</p>
+                                </div>
+                                <select
+                                    class="bg-white/5 border border-white/10 rounded-lg text-sm px-3 py-1.5 focus:outline-none text-on-surface cursor-pointer">
+                                    <option class="bg-surface">Last 7 Days</option>
+                                    <option class="bg-surface">Last 30 Days</option>
+                                </select>
+                            </div>
+                            <div class="flex-1 relative mt-4">
+                                <!-- Custom Chart SVG with Glowing Effect -->
+                                <svg class="w-full h-full overflow-visible" viewBox="0 0 800 200"
+                                    preserveAspectRatio="none">
+                                    <defs>
+                                        <linearGradient id="glow-gradient" x1="0%" x2="0%" y1="0%" y2="100%">
+                                            <stop offset="0%"
+                                                style="stop-color:rgba(0, 219, 233, 0.4); stop-opacity:0.4"></stop>
+                                            <stop offset="100%" style="stop-color:rgba(0, 219, 233, 0); stop-opacity:0">
+                                            </stop>
+                                        </linearGradient>
+                                        <filter id="glow">
+                                            <feGaussianBlur result="coloredBlur" stdDeviation="4"></feGaussianBlur>
+                                            <feMerge>
+                                                <feMergeNode in="coloredBlur"></feMergeNode>
+                                                <feMergeNode in="SourceGraphic"></feMergeNode>
+                                            </feMerge>
+                                        </filter>
+                                    </defs>
+                                    <!-- Grid Lines -->
+                                    <line stroke="rgba(255,255,255,0.03)" stroke-width="1" x1="0" x2="800" y1="0"
+                                        y2="0"></line>
+                                    <line stroke="rgba(255,255,255,0.03)" stroke-width="1" x1="0" x2="800" y1="50"
+                                        y2="50"></line>
+                                    <line stroke="rgba(255,255,255,0.03)" stroke-width="1" x1="0" x2="800" y1="100"
+                                        y2="100"></line>
+                                    <line stroke="rgba(255,255,255,0.03)" stroke-width="1" x1="0" x2="800" y1="150"
+                                        y2="150"></line>
+                                    <line stroke="rgba(255,255,255,0.03)" stroke-width="1" x1="0" x2="800" y1="200"
+                                        y2="200"></line>
+                                    <!-- Area Fill -->
+                                    <path d="M0,150 Q100,80 200,120 T400,60 T600,100 T800,40 V200 H0 Z"
+                                        fill="url(#glow-gradient)"></path>
+                                    <!-- Glowing Line -->
+                                    <path class="animate-neon" d="M0,150 Q100,80 200,120 T400,60 T600,100 T800,40"
+                                        fill="none" filter="url(#glow)" stroke="#00dbe9" stroke-width="3"></path>
+                                </svg>
+                                <div
+                                    class="absolute bottom-[-24px] left-0 w-full flex justify-between text-[10px] font-mono-label text-on-surface-variant uppercase tracking-widest px-1">
+                                    <span>Mon</span>
+                                    <span>Tue</span>
+                                    <span>Wed</span>
+                                    <span>Thu</span>
+                                    <span>Fri</span>
+                                    <span>Sat</span>
+                                    <span>Sun</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AI Agent Status -->
+                        <div class="glass-panel glint-border p-8 rounded-2xl flex flex-col justify-between">
+                            <div>
+                                <h3 class="font-headline-md text-2xl mb-6">Agent Status</h3>
+                                <div class="space-y-6">
+                                    <div class="flex items-center gap-4">
+                                        <div class="relative">
+                                            <div
+                                                class="w-2 h-2 bg-green-400 rounded-full absolute -top-0.5 -right-0.5 shadow-[0_0_8px_#4ade80]">
+                                            </div>
+                                            <div
+                                                class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+                                                <span
+                                                    class="material-symbols-outlined text-xl text-primary-fixed">smart_toy</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="font-bold text-sm">Background Engine v4</p>
+                                            <p class="text-xs text-on-surface-variant">Optimal Performance • 24ms
+                                                latency</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                        <div class="relative">
+                                            <div
+                                                class="w-2 h-2 bg-green-400 rounded-full absolute -top-0.5 -right-0.5 shadow-[0_0_8px_#4ade80]">
+                                            </div>
+                                            <div
+                                                class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+                                                <span
+                                                    class="material-symbols-outlined text-xl text-secondary">neurology</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="font-bold text-sm">Visual Restoration Node</p>
+                                            <p class="text-xs text-on-surface-variant">Active • Upscaling Priority</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-4 opacity-50">
+                                        <div class="relative">
+                                            <div
+                                                class="w-2 h-2 bg-orange-400 rounded-full absolute -top-0.5 -right-0.5">
+                                            </div>
+                                            <div
+                                                class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+                                                <span
+                                                    class="material-symbols-outlined text-xl text-tertiary-fixed-dim">cloud_sync</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="font-bold text-sm">Magic Layers Cluster</p>
+                                            <p class="text-xs text-on-surface-variant">Synchronizing Metadata...</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-6 p-4 rounded-xl bg-primary-fixed/5 border border-primary-fixed/10">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-label-caps text-primary-fixed">GPU ACCELERATION</span>
+                                    <span class="text-xs font-mono-label text-primary-fixed">88%</span>
+                                </div>
+                                <div class="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+                                    <div class="h-full bg-primary-fixed shadow-[0_0_10px_#00dbe9]" style="width: 88%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Projects Section -->
+                    <section class="space-y-6">
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <h3 class="font-headline-md text-2xl">Recent Projects</h3>
+                                <p class="text-on-surface-variant text-sm">Continue where you left off</p>
+                            </div>
+                            <button class="text-primary-fixed-dim text-sm hover:underline flex items-center gap-1">
+                                View Archive
+                                <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-card-gap">
+                            <!-- Project Item 1 (Neon Skyline) -->
+                            <div class="group cursor-pointer recent-project-card" data-tool="photo-enhancer">
+                                <div
+                                    class="relative aspect-video rounded-xl overflow-hidden glass-panel glint-border mb-3">
+                                    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        alt="Neon Skyline"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzQofFZx7VQdzyhJPRj2indEg8sqW1u7IhXIiqhPscaEwCDxDxNgbc9qMY4AzEmZTqx6KKsmRS0THfDX3HZKBiqFnAFW4AMkoKrrnWLdt1voeuVIAhRgNWCU5FT3M1ALM_bZ0ZdgQhLEwGzSmUqPwEgCptVndcSkL7jeLQLpsd-SwWfHCfAA2Q0nBKXcByV8M9cgoIFainVPsRLWPvSIrgHjjKeUSV2-Qy322nGqBLk4RVAsTJIWMa" />
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                                        <button
+                                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">
+                                            <span class="material-symbols-outlined">edit</span>
+                                        </button>
+                                        <button
+                                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/30 transition-all">
+                                            <span class="material-symbols-outlined">download</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <p class="font-bold text-sm">Neon Skyline_V2.png</p>
+                                <p class="text-xs text-on-surface-variant">Enhanced • 2 mins ago</p>
+                            </div>
+
+                            <!-- Project Item 2 (Chrome Sculpt) -->
+                            <div class="group cursor-pointer recent-project-card" data-tool="bg-remover">
+                                <div
+                                    class="relative aspect-video rounded-xl overflow-hidden glass-panel glint-border mb-3">
+                                    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        alt="Chrome Sculpt"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmX8Tcv8L9uFZu-tpvOC3d0kzcnnvRqiBLwzuNAmOJjENss1As4UBNjoX5xoEkcHAlmoKcKDzF19dZ12QhwTbVbRoDi0ykvcKS0T3TvuyXj6U5QEY9iQj9VNGws4l0eYOujeSeBAbj_5zqV3VROUldktQPvWGGD1V21WfuUOF-tm3gbaEHb0bJbM-ZurWlk9RoS39_nbUPQGGnyBAlHmY3u7CZboW5rP2vnw8RQYYIsLAsHwERahHl" />
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                                        <button
+                                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">
+                                            <span class="material-symbols-outlined">edit</span>
+                                        </button>
+                                        <button
+                                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/30 transition-all">
+                                            <span class="material-symbols-outlined">download</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <p class="font-bold text-sm">Chrome_Sculpt_01.png</p>
+                                <p class="text-xs text-on-surface-variant">Transparent • 1 hr ago</p>
+                            </div>
+
+                            <!-- Project Item 3 (Portrait Comp) -->
+                            <div class="group cursor-pointer recent-project-card" data-tool="magic-layers">
+                                <div
+                                    class="relative aspect-video rounded-xl overflow-hidden glass-panel glint-border mb-3">
+                                    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        alt="Portrait Comp"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCvanpsr35gjWl0tU3a3F3hHzONyziMBNV7FwWrcNvpSIc5EbRrgfpVQFF74YCd9GbvoY8K0fChgV7hMQCuhPLay530L6JyTFxfSy_yhs0_UHknXjq5MO4CVUvdKAe8pC7KWoJXC39xQwYKJqemkEicuI_toyahSTotXaLHAF7ELD-3JKs235XhinyJ-LIOGVeiMBlx0KijuXv-WmTDrI2YLOYJJSCF83z9YGSrK2rjzuaH6Ctl_woI" />
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                                        <button
+                                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">
+                                            <span class="material-symbols-outlined">edit</span>
+                                        </button>
+                                        <button
+                                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/30 transition-all">
+                                            <span class="material-symbols-outlined">download</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <p class="font-bold text-sm">Portrait_Comp_Final.webp</p>
+                                <p class="text-xs text-on-surface-variant">Layered • 4 hrs ago</p>
+                            </div>
+
+                            <!-- Project Item 4 (Nature Detail) -->
+                            <div class="group cursor-pointer recent-project-card" data-tool="photo-enhancer">
+                                <div
+                                    class="relative aspect-video rounded-xl overflow-hidden glass-panel glint-border mb-3">
+                                    <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                        alt="Nature Detail"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAovmzoyjavV410aheKpKAIL7qVav-HQ1RW2nPb9cfy1eyP8587yaSNa5khTgb6umkXrWMSs3ng9D67Mbq24xIqmX5AWado6arrfOO_OKrnz1D3NBbxL4LkehJi7-GgcB2y1x5CBhQb741c2UbfZ9rKl3JU-uTai1l3MQZ71docy_PA5XYMtL7bKWSZM8rjB8GYd2Phi5ZtaBmaxtL89ZbTH9B_A8pTgbKjSDdYrssk_3yTlwwuie9a" />
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-4">
+                                        <button
+                                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary-fixed hover:text-on-primary-fixed transition-all">
+                                            <span class="material-symbols-outlined">edit</span>
+                                        </button>
+                                        <button
+                                            class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-white hover:bg-white/30 transition-all">
+                                            <span class="material-symbols-outlined">download</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <p class="font-bold text-sm">Nature_Macro_Detail.jpg</p>
+                                <p class="text-xs text-on-surface-variant">Original • 12 hrs ago</p>
+                            </div>
+                        </div>
+                    </section>
+                </section>
+
+
+                <!-- 2. BACKGROUND REMOVER VIEW -->
+                <section id="view-bg-remover"
+                    class="view-panel view-hidden pt-8 pb-12 px-container-padding max-w-[1400px] mx-auto space-y-8">
+                    <!-- Tool Header -->
+                    <div class="flex justify-between items-end flex-shrink-0">
+                        <div>
+                            <h1 class="font-display-lg text-headline-md text-primary-fixed mb-1">Background Remover</h1>
+                            <p class="text-on-surface-variant">Clean cutouts in seconds using smart boundary
+                                color-keying.</p>
+                        </div>
+                    </div>
+
+                    <!-- Central Workspace Card -->
+                    <div
+                        class="glass-panel glint-border p-8 rounded-3xl min-h-[500px] flex flex-col justify-center items-center relative overflow-hidden">
+
+                        <!-- Upload State -->
+                        <div id="bg-upload-container" class="w-full flex flex-col items-center justify-center">
+                            <div
+                                class="common-upload-card flex flex-col items-center justify-center p-10 text-center cursor-pointer select-none w-full max-w-xl mx-auto border-2 border-dashed border-primary-fixed-dim/20 hover:border-primary-fixed-dim/50 hover:bg-white/5 rounded-2xl transition-all duration-300">
+                                <div
+                                    class="w-16 h-16 rounded-full bg-primary-fixed-dim/10 flex items-center justify-center text-primary-fixed-dim mb-4 border border-primary-fixed-dim/20 transition-transform duration-300 hover:scale-105">
+                                    <span class="material-symbols-outlined text-4xl">cloud_upload</span>
+                                </div>
+                                <h3 class="font-headline-md text-lg mb-1 text-white">Drag and drop your image here</h3>
+                                <p class="text-on-surface-variant text-xs mb-4">Supports PNG, JPG, WebP up to 50MB</p>
+                                <button
+                                    class="px-5 py-2.5 bg-primary-fixed-dim text-on-primary-fixed font-bold rounded-lg hover:brightness-110 active:scale-95 transition-all text-xs font-label-caps tracking-wider shadow-lg shadow-primary-fixed-dim/20">
+                                    Browse Files
+                                </button>
+                                <input type="file" id="bg-file-input" class="hidden" accept="image/*" />
+                                <div class="mt-6 flex flex-col items-center">
+                                    <span
+                                        class="text-[10px] text-on-surface-variant/60 uppercase tracking-widest font-mono-label mb-2">Or
+                                        try a sample</span>
+                                    <div class="flex gap-2 justify-center">
+                                        <button type="button"
+                                            class="sample-btn px-3 py-1 bg-white/5 border border-white/10 hover:border-primary-fixed-dim hover:bg-primary-fixed-dim/10 rounded text-[10px] font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all"
+                                            data-tool="bg" data-sample="portrait">Portrait</button>
+                                        <button type="button"
+                                            class="sample-btn px-3 py-1 bg-white/5 border border-white/10 hover:border-primary-fixed-dim hover:bg-primary-fixed-dim/10 rounded text-[10px] font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all"
+                                            data-tool="bg" data-sample="product">Product</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Processing State -->
+                        <div id="bg-processing-overlay"
+                            class="hidden absolute inset-0 z-50 bg-[#050506]/80 flex flex-col items-center justify-center overflow-hidden rounded-3xl">
+                            <!-- Live Preview Image -->
+                            <img id="bg-processing-img" class="absolute inset-0 w-full h-full object-contain opacity-40 blur-[2px]" />
+                            <!-- Scanning Laser -->
+                            <div id="bg-scanner-line" class="absolute left-0 right-0 h-[2px] bg-primary-fixed shadow-[0_0_20px_4px_#00dbe9] z-10" style="top: 0%"></div>
+                            
+                            <!-- Progress Info -->
+                            <div class="z-20 flex flex-col items-center p-6 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 mt-20">
+                                <div class="w-64 h-1.5 bg-white/10 rounded-full mb-4 overflow-hidden">
+                                    <div id="bg-progress-bar"
+                                        class="h-full bg-primary-fixed-dim transition-all duration-300 shadow-[0_0_10px_#00dbe9]"
+                                        style="width: 0%"></div>
+                                </div>
+                                <div class="flex items-center gap-3 text-primary-fixed-dim">
+                                    <span class="material-symbols-outlined animate-spin text-2xl">refresh</span>
+                                    <span id="bg-progress-message"
+                                        class="font-mono-label uppercase tracking-widest text-sm">Initializing
+                                        Segmentation...</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Result State -->
+                        <div id="bg-result-container" class="hidden w-full flex flex-col items-center gap-6">
+                            <div
+                                class="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-2xl checkerboard-bg border border-white/10 flex items-center justify-center">
+                                <img id="bg-image-result" class="max-w-full max-h-full object-contain"
+                                    alt="Background Cutout" />
+                            </div>
+                            <!-- Sleek Control Panel -->
+                            <div
+                                class="flex flex-col sm:flex-row items-center justify-between gap-6 w-full max-w-2xl p-4 bg-white/5 border border-white/10 rounded-2xl">
+                                <!-- Tolerance Slider (Allows tweaking results!) -->
+                                <div class="flex items-center gap-4 w-full sm:w-auto flex-1">
+                                    <label
+                                        class="text-xs font-label-caps text-on-surface-variant whitespace-nowrap">Tolerance</label>
+                                    <input id="bg-tolerance" type="range" min="5" max="100" value="30"
+                                        class="w-full h-1 bg-white/10 rounded-lg appearance-none cursor-pointer custom-slider" />
+                                    <span id="bg-tolerance-val"
+                                        class="text-xs font-mono-label text-primary-fixed">30</span>
+                                </div>
+                                <div class="flex gap-3 whitespace-nowrap">
+                                    <button id="bg-btn-original"
+                                        class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-xs font-bold text-on-surface hover:bg-white/10 transition-all">Show
+                                        Original</button>
+                                    <button id="bg-btn-download"
+                                        class="px-5 py-2 bg-primary-fixed-dim text-on-primary-fixed font-bold rounded-lg text-xs font-label-caps tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary-fixed-dim/20">Download</button>
+                                    <button id="bg-btn-reset"
+                                        class="px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-xs font-bold text-on-surface-variant hover:text-white transition-all"><span
+                                            class="material-symbols-outlined text-sm">refresh</span></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- 3. WATERMARK REMOVER VIEW -->
+                <section id="view-watermark"
+                    class="view-panel view-hidden pt-8 pb-12 px-container-padding max-w-[1400px] mx-auto space-y-8">
+                    <div class="flex justify-between items-end flex-shrink-0">
+                        <div>
+                            <h1 class="font-display-lg text-headline-md text-secondary mb-1">Watermark Remover</h1>
+                            <p class="text-on-surface-variant">Remove watermarks or logos. Draw on canvas to clean
+                                specific areas.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="glass-panel glint-border p-8 rounded-3xl min-h-[500px] flex flex-col justify-center items-center relative overflow-hidden">
+
+                        <!-- Upload State -->
+                        <div id="wm-upload-container" class="w-full flex flex-col items-center justify-center">
+                            <div
+                                class="common-upload-card flex flex-col items-center justify-center p-10 text-center cursor-pointer select-none w-full max-w-xl mx-auto border-2 border-dashed border-secondary/20 hover:border-secondary/50 hover:bg-white/5 rounded-2xl transition-all duration-300">
+                                <div
+                                    class="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center text-secondary mb-4 border border-secondary/20 transition-transform duration-300 hover:scale-105">
+                                    <span class="material-symbols-outlined text-4xl">branding_watermark</span>
+                                </div>
+                                <h3 class="font-headline-md text-lg mb-1 text-white">Drag and drop watermarked image
+                                </h3>
+                                <p class="text-on-surface-variant text-xs mb-4">Supports PNG, JPG, WebP up to 50MB</p>
+                                <button
+                                    class="px-5 py-2.5 bg-primary-fixed-dim text-on-primary-fixed font-bold rounded-lg hover:brightness-110 active:scale-95 transition-all text-xs font-label-caps tracking-wider shadow-lg shadow-primary-fixed-dim/20">
+                                    Browse Files
+                                </button>
+                                <input type="file" id="wm-file-input" class="hidden" accept="image/*" />
+                                <div class="mt-6 flex flex-col items-center">
+                                    <span
+                                        class="text-[10px] text-on-surface-variant/60 uppercase tracking-widest font-mono-label mb-2">Or
+                                        try a sample</span>
+                                    <div class="flex gap-2 justify-center">
+                                        <button type="button"
+                                            class="sample-btn px-3 py-1 bg-white/5 border border-white/10 hover:border-secondary hover:bg-secondary/10 rounded text-[10px] font-mono-label text-on-surface-variant hover:text-secondary transition-all"
+                                            data-tool="wm" data-sample="portrait">Portrait</button>
+                                        <button type="button"
+                                            class="sample-btn px-3 py-1 bg-white/5 border border-white/10 hover:border-secondary hover:bg-secondary/10 rounded text-[10px] font-mono-label text-on-surface-variant hover:text-secondary transition-all"
+                                            data-tool="wm" data-sample="product">Product</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Processing State -->
+                        <div id="wm-processing-overlay"
+                            class="hidden absolute inset-0 z-50 bg-[#050506]/90 backdrop-blur-md flex flex-col items-center justify-center p-12">
+                            <div class="w-64 h-1.5 bg-white/10 rounded-full mb-6 overflow-hidden">
+                                <div id="wm-progress-bar"
+                                    class="h-full bg-secondary transition-all duration-300 shadow-[0_0_10px_#d0bcff]"
+                                    style="width: 0%"></div>
+                            </div>
+                            <div class="flex items-center gap-3 text-secondary">
+                                <span class="material-symbols-outlined animate-spin text-2xl">refresh</span>
+                                <span id="wm-progress-message"
+                                    class="font-mono-label uppercase tracking-widest text-sm">Scanning Image...</span>
+                            </div>
+                        </div>
+
+                        <!-- Result/Editor State -->
+                        <div id="wm-result-container" class="hidden w-full flex flex-col items-center gap-6">
+                            <div
+                                class="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-2xl bg-[#0e0e0f] border border-white/10 flex items-center justify-center cursor-crosshair">
+                                <!-- Canvas drawing layer -->
+                                <canvas id="wm-canvas" class="max-w-full max-h-full object-contain"></canvas>
+                                <!-- Auto detection scanning lines -->
+                                <div id="wm-laser"
+                                    class="hidden absolute left-0 right-0 h-1 bg-secondary shadow-[0_0_15px_#d0bcff] pointer-events-none">
+                                </div>
+                            </div>
+
+                            <!-- Tool Options -->
+                            <div
+                                class="flex flex-col sm:flex-row items-center justify-between gap-6 w-full max-w-2xl p-4 bg-white/5 border border-white/10 rounded-2xl">
+                                <!-- Brush Size -->
+                                <div class="flex items-center gap-3 w-full sm:w-auto">
+                                    <label
+                                        class="text-xs font-label-caps text-on-surface-variant whitespace-nowrap">Brush
+                                        Size</label>
+                                    <input id="wm-brush-size" type="range" min="5" max="50" value="20"
+                                        class="w-24 h-1 bg-white/10 rounded-lg appearance-none cursor-pointer custom-slider" />
+                                    <span id="wm-brush-val" class="text-xs font-mono-label text-secondary">20px</span>
+                                </div>
+
+                                <!-- Control Actions -->
+                                <div class="flex gap-2 flex-wrap sm:flex-nowrap justify-end w-full sm:w-auto">
+                                    <button id="wm-btn-autodetect"
+                                        class="px-4 py-2 bg-secondary/10 border border-secondary/30 text-secondary hover:bg-secondary/20 rounded-lg text-xs font-bold transition-all">Auto
+                                        Remove Gemini</button>
+                                    <button id="wm-btn-heal"
+                                        class="px-4 py-2 bg-white/5 border border-white/10 hover:bg-white/10 rounded-lg text-xs font-bold transition-all">Erase
+                                        Brushed</button>
+                                    <button id="wm-btn-download"
+                                        class="px-5 py-2 bg-secondary text-on-secondary font-bold rounded-lg text-xs font-label-caps tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-lg">Download</button>
+                                    <button id="wm-btn-reset"
+                                        class="px-3 py-2 bg-white/5 border border-white/10 rounded-lg text-xs font-bold text-on-surface-variant hover:text-white transition-all"><span
+                                            class="material-symbols-outlined text-sm">refresh</span></button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- 4. MAGIC LAYERS VIEW -->
+                <section id="view-magic-layers"
+                    class="view-panel view-hidden pt-8 pb-12 px-container-padding max-w-[1400px] mx-auto space-y-8">
+                    <div class="flex justify-between items-end flex-shrink-0">
+                        <div>
+                            <h1 class="font-display-lg text-headline-md text-tertiary-fixed-dim mb-1">Magic Layers</h1>
+                            <p class="text-on-surface-variant">Separate an image into Foreground, Background, and Depth
+                                Map layers.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="glass-panel glint-border p-8 rounded-3xl min-h-[500px] flex flex-col justify-center items-center relative overflow-hidden">
+
+                        <!-- Upload State -->
+                        <div id="ml-upload-container" class="w-full flex flex-col items-center justify-center">
+                            <div
+                                class="common-upload-card flex flex-col items-center justify-center p-10 text-center cursor-pointer select-none w-full max-w-xl mx-auto border-2 border-dashed border-tertiary-fixed-dim/20 hover:border-tertiary-fixed-dim/50 hover:bg-white/5 rounded-2xl transition-all duration-300">
+                                <div
+                                    class="w-16 h-16 rounded-full bg-tertiary-fixed-dim/10 flex items-center justify-center text-tertiary-fixed-dim mb-4 border border-tertiary-fixed-dim/20 transition-transform duration-300 hover:scale-105">
+                                    <span class="material-symbols-outlined text-4xl">layers</span>
+                                </div>
+                                <h3 class="font-headline-md text-lg mb-1 text-white">Drag and drop your image here</h3>
+                                <p class="text-on-surface-variant text-xs mb-4">Supports PNG, JPG, WebP up to 50MB</p>
+                                <button
+                                    class="px-5 py-2.5 bg-primary-fixed-dim text-on-primary-fixed font-bold rounded-lg hover:brightness-110 active:scale-95 transition-all text-xs font-label-caps tracking-wider shadow-lg shadow-tertiary-fixed-dim/20">
+                                    Browse Files
+                                </button>
+                                <input type="file" id="ml-file-input" class="hidden" accept="image/*" />
+                                <div class="mt-6 flex flex-col items-center">
+                                    <span
+                                        class="text-[10px] text-on-surface-variant/60 uppercase tracking-widest font-mono-label mb-2">Or
+                                        try a sample</span>
+                                    <div class="flex gap-2 justify-center">
+                                        <button type="button"
+                                            class="sample-btn px-3 py-1 bg-white/5 border border-white/10 hover:border-tertiary-fixed-dim hover:bg-tertiary-fixed-dim/10 rounded text-[10px] font-mono-label text-on-surface-variant hover:text-tertiary-fixed-dim transition-all"
+                                            data-tool="ml" data-sample="portrait">Portrait</button>
+                                        <button type="button"
+                                            class="sample-btn px-3 py-1 bg-white/5 border border-white/10 hover:border-tertiary-fixed-dim hover:bg-tertiary-fixed-dim/10 rounded text-[10px] font-mono-label text-on-surface-variant hover:text-tertiary-fixed-dim transition-all"
+                                            data-tool="ml" data-sample="product">Product</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Processing State -->
+                        <div id="ml-processing-overlay"
+                            class="hidden absolute inset-0 z-50 bg-[#050506]/90 backdrop-blur-md flex flex-col items-center justify-center p-12">
+                            <div class="w-64 h-1.5 bg-white/10 rounded-full mb-6 overflow-hidden">
+                                <div id="ml-progress-bar"
+                                    class="h-full bg-tertiary-fixed-dim transition-all duration-300 shadow-[0_0_10px_#4cd7f6]"
+                                    style="width: 0%"></div>
+                            </div>
+                            <div class="flex items-center gap-3 text-tertiary-fixed-dim">
+                                <span class="material-symbols-outlined animate-spin text-2xl">refresh</span>
+                                <span id="ml-progress-message"
+                                    class="font-mono-label uppercase tracking-widest text-sm">Separating
+                                    Layers...</span>
+                            </div>
+                        </div>
+
+                        <!-- Result Split Layout -->
+                        <div id="ml-result-container"
+                            class="hidden w-full flex flex-col lg:flex-row gap-8 items-stretch">
+                            <!-- Main Preview (Left) -->
+                            <div
+                                class="flex-1 flex flex-col items-center justify-center bg-white/5 border border-white/10 p-6 rounded-2xl">
+                                <div
+                                    class="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl bg-[#0e0e0f] flex items-center justify-center border border-white/5">
+                                    <img id="ml-image-preview" class="max-w-full max-h-full object-contain"
+                                        alt="Original Preview" />
+                                </div>
+                                <p class="text-xs text-on-surface-variant mt-4 font-mono-label">Original Image Preview
+                                </p>
+                            </div>
+
+                            <!-- Layers Sidebar (Right) -->
+                            <div
+                                class="w-full lg:w-[360px] flex flex-col bg-white/5 border border-white/10 rounded-2xl p-6">
+                                <h3
+                                    class="text-sm font-label-caps text-on-surface-variant border-b border-white/10 pb-3 mb-4">
+                                    Layers Stack</h3>
+
+                                <div id="ml-layers-container" class="flex-1 flex flex-col gap-4 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                                    <!-- Layers will be injected dynamically by app.js -->
+                                </div>
+
+                                <button id="ml-btn-reset"
+                                    class="w-full mt-6 py-2.5 bg-white/5 border border-white/10 rounded-lg text-xs font-bold text-on-surface-variant hover:text-white hover:bg-white/10 transition-all">Upload
+                                    Another</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- 5. PHOTO ENHANCER VIEW -->
+                <section id="view-photo-enhancer"
+                    class="view-panel view-hidden pt-8 pb-12 px-container-padding max-w-[1400px] mx-auto space-y-8">
+                    <div class="flex justify-between items-end flex-shrink-0">
+                        <div>
+                            <h1 class="font-display-lg text-headline-md text-primary-fixed mb-1">Photo Enhancer</h1>
+                            <p class="text-on-surface-variant">Upscale low-resolution media and restore details with
+                                sharp filters.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="glass-panel glint-border p-8 rounded-3xl min-h-[500px] flex flex-col justify-center items-center relative overflow-hidden">
+
+                        <!-- Upload State -->
+                        <div id="pe-upload-container" class="w-full flex flex-col items-center justify-center">
+                            <div
+                                class="common-upload-card flex flex-col items-center justify-center p-10 text-center cursor-pointer select-none w-full max-w-xl mx-auto border-2 border-dashed border-primary-fixed-dim/20 hover:border-primary-fixed-dim/50 hover:bg-white/5 rounded-2xl transition-all duration-300">
+                                <div
+                                    class="w-16 h-16 rounded-full bg-primary-fixed-dim/10 flex items-center justify-center text-primary-fixed-dim mb-4 border border-primary-fixed-dim/20 transition-transform duration-300 hover:scale-105">
+                                    <span class="material-symbols-outlined text-4xl">auto_fix_high</span>
+                                </div>
+                                <h3 class="font-headline-md text-lg mb-1 text-white">Drag and drop low-quality photo
+                                </h3>
+                                <p class="text-on-surface-variant text-xs mb-4">Supports PNG, JPG, WebP up to 50MB</p>
+                                <button
+                                    class="px-5 py-2.5 bg-primary-fixed-dim text-on-primary-fixed font-bold rounded-lg hover:brightness-110 active:scale-95 transition-all text-xs font-label-caps tracking-wider shadow-lg shadow-primary-fixed-dim/20">
+                                    Browse Files
+                                </button>
+                                <input type="file" id="pe-file-input" class="hidden" accept="image/*" />
+                                <div class="mt-6 flex flex-col items-center">
+                                    <span
+                                        class="text-[10px] text-on-surface-variant/60 uppercase tracking-widest font-mono-label mb-2">Or
+                                        try a sample</span>
+                                    <div class="flex gap-2 justify-center">
+                                        <button type="button"
+                                            class="sample-btn px-3 py-1 bg-white/5 border border-white/10 hover:border-primary-fixed-dim hover:bg-primary-fixed-dim/10 rounded text-[10px] font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all"
+                                            data-tool="pe" data-sample="portrait">Portrait</button>
+                                        <button type="button"
+                                            class="sample-btn px-3 py-1 bg-white/5 border border-white/10 hover:border-primary-fixed-dim hover:bg-primary-fixed-dim/10 rounded text-[10px] font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all"
+                                            data-tool="pe" data-sample="product">Product</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Processing State -->
+                        <div id="pe-processing-overlay"
+                            class="hidden absolute inset-0 z-50 bg-[#050506]/90 backdrop-blur-md flex flex-col items-center justify-center p-12">
+                            <div class="w-64 h-1.5 bg-white/10 rounded-full mb-6 overflow-hidden">
+                                <div id="pe-progress-bar"
+                                    class="h-full bg-primary-fixed-dim transition-all duration-300 shadow-[0_0_10px_#00dbe9]"
+                                    style="width: 0%"></div>
+                            </div>
+                            <div class="flex items-center gap-3 text-primary-fixed-dim">
+                                <span class="material-symbols-outlined animate-spin text-2xl">refresh</span>
+                                <span id="pe-progress-message"
+                                    class="font-mono-label uppercase tracking-widest text-sm">Enhancing
+                                    Contrast...</span>
+                            </div>
+                        </div>
+
+                        <!-- Enhancement Settings state (post-upload, pre-generation) -->
+                        <div id="pe-setup-container" class="hidden w-full max-w-2xl flex flex-col items-center gap-6">
+                            <div
+                                class="relative w-full aspect-video rounded-xl overflow-hidden bg-black/20 border border-white/10 flex items-center justify-center">
+                                <img id="pe-image-original" class="max-w-full max-h-full object-contain"
+                                    alt="Original Blurry Preview" />
+                            </div>
+
+                            <!-- Control panel for choosing resolution -->
+                            <div
+                                class="flex flex-col sm:flex-row items-center justify-between gap-6 w-full p-4 bg-white/5 border border-white/10 rounded-2xl">
+                                <!-- Radio button selector -->
+                                <div class="flex flex-col gap-2">
+                                    <span class="text-[10px] font-label-caps text-on-surface-variant">Select
+                                        Resolution</span>
+                                    <div class="flex gap-2" id="pe-resolution-selector">
+                                        <button
+                                            class="res-btn px-4 py-2 bg-white/5 border border-white/10 hover:border-primary-fixed hover:bg-primary-fixed/5 rounded-lg text-xs font-bold text-on-surface-variant hover:text-white transition-all cursor-pointer"
+                                            data-res="2k">2K (2048px)</button>
+                                        <button
+                                            class="res-btn px-4 py-2 bg-primary-fixed-dim/20 border border-primary-fixed-dim/40 rounded-lg text-xs font-bold text-primary-fixed transition-all cursor-pointer active"
+                                            data-res="4k">4K (3840px)</button>
+                                        <button
+                                            class="res-btn px-4 py-2 bg-white/5 border border-white/10 hover:border-primary-fixed hover:bg-primary-fixed/5 rounded-lg text-xs font-bold text-on-surface-variant hover:text-white transition-all cursor-pointer"
+                                            data-res="8k">8K (7680px)</button>
+                                    </div>
+                                </div>
+
+                                <button id="pe-btn-generate"
+                                    class="px-6 py-3 bg-primary-fixed-dim text-on-primary-fixed font-bold rounded-lg text-xs font-label-caps tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary-fixed-dim/20 self-end">Generate</button>
+                            </div>
+                        </div>
+
+                        <!-- Result Comparison State -->
+                        <div id="pe-result-container" class="hidden w-full flex flex-col items-center gap-6">
+                            <div
+                                class="relative w-full max-w-2xl aspect-video rounded-2xl overflow-hidden shadow-2xl checkerboard-bg border border-white/10 flex items-center justify-center">
+                                <!-- Side-by-side split slider -->
+                                <div class="relative w-full h-full rounded-xl overflow-hidden" id="pe-slider-container"
+                                    style="--position: 50%;">
+                                    <!-- Blurry Original (left) -->
+                                    <div class="absolute inset-0 before-image pointer-events-none z-10">
+                                        <img id="pe-img-before" class="w-full h-full object-contain"
+                                            alt="Original Blurry" />
+                                    </div>
+                                    <!-- Sharp Enhanced (right) -->
+                                    <div class="absolute inset-0 after-image pointer-events-none z-20">
+                                        <img id="pe-img-after" class="w-full h-full object-contain"
+                                            alt="Enhanced Clean" />
+                                    </div>
+                                    <!-- Slider Handle -->
+                                    <div class="absolute top-0 bottom-0 w-[2px] bg-primary-fixed shadow-[0_0_10px_rgba(0,219,233,0.5)] z-30 cursor-ew-resize"
+                                        id="pe-slider-handle" style="left: 50%;">
+                                        <div
+                                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed shadow-xl border-2 border-surface active:scale-95 transition-all">
+                                            <span
+                                                class="material-symbols-outlined text-sm select-none">unfold_more</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Control Actions -->
+                            <div
+                                class="flex justify-between items-center w-full max-w-2xl p-4 bg-white/5 border border-white/10 rounded-2xl">
+                                <span id="pe-output-info"
+                                    class="text-xs font-mono-label text-on-surface-variant">Enhanced to 4K</span>
+                                <div class="flex gap-3">
+                                    <button id="pe-btn-download"
+                                        class="px-5 py-2 bg-primary-fixed-dim text-on-primary-fixed font-bold rounded-lg text-xs font-label-caps tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary-fixed-dim/20">Download
+                                        High-Res</button>
+                                    <button id="pe-btn-reset"
+                                        class="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-xs font-bold text-on-surface hover:bg-white/10 transition-all">Upload
+                                        Another</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- 6. IMAGE COMPRESSOR VIEW -->
+                <section id="view-compressor"
+                    class="view-panel view-hidden pt-8 pb-12 px-container-padding max-w-[1400px] mx-auto space-y-8">
+                    <div class="flex justify-between items-end flex-shrink-0">
+                        <div>
+                            <h1 class="font-display-lg text-headline-md text-primary-fixed mb-1">Image Compressor</h1>
+                            <p class="text-on-surface-variant">Compress image file size to exact target KB while preserving maximum visual clarity.</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="glass-panel glint-border p-8 rounded-3xl min-h-[500px] flex flex-col justify-center items-center relative overflow-hidden">
+
+                        <!-- Upload State -->
+                        <div id="ic-upload-container" class="w-full flex flex-col items-center justify-center">
+                            <div
+                                class="common-upload-card flex flex-col items-center justify-center p-10 text-center cursor-pointer select-none w-full max-w-xl mx-auto border-2 border-dashed border-primary-fixed-dim/20 hover:border-primary-fixed-dim/50 hover:bg-white/5 rounded-2xl transition-all duration-300">
+                                <div
+                                    class="w-16 h-16 rounded-full bg-primary-fixed-dim/10 flex items-center justify-center text-primary-fixed-dim mb-4 border border-primary-fixed-dim/20 transition-transform duration-300 hover:scale-105">
+                                    <span class="material-symbols-outlined text-4xl">compress</span>
+                                </div>
+                                <h3 class="font-headline-md text-lg mb-1 text-white">Drag & drop image to compress</h3>
+                                <p class="text-on-surface-variant text-xs mb-4">Supports PNG, JPG, WebP up to 50MB</p>
+                                <button
+                                    class="px-5 py-2.5 bg-primary-fixed-dim text-on-primary-fixed font-bold rounded-lg hover:brightness-110 active:scale-95 transition-all text-xs font-label-caps tracking-wider shadow-lg shadow-primary-fixed-dim/20">
+                                    Browse Files
+                                </button>
+                                <input type="file" id="ic-file-input" class="hidden" accept="image/*" />
+                                <div class="mt-6 flex flex-col items-center">
+                                    <span
+                                        class="text-[10px] text-on-surface-variant/60 uppercase tracking-widest font-mono-label mb-2">Or
+                                        try a sample</span>
+                                    <div class="flex gap-2 justify-center">
+                                        <button type="button"
+                                            class="sample-btn px-3 py-1 bg-white/5 border border-white/10 hover:border-primary-fixed-dim hover:bg-primary-fixed-dim/10 rounded text-[10px] font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all"
+                                            data-tool="ic" data-sample="portrait">Portrait</button>
+                                        <button type="button"
+                                            class="sample-btn px-3 py-1 bg-white/5 border border-white/10 hover:border-primary-fixed-dim hover:bg-primary-fixed-dim/10 rounded text-[10px] font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all"
+                                            data-tool="ic" data-sample="product">Product</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Processing State -->
+                        <div id="ic-processing-overlay"
+                            class="hidden absolute inset-0 z-50 bg-[#050506]/90 backdrop-blur-md flex flex-col items-center justify-center p-12">
+                            <div class="w-64 h-1.5 bg-white/10 rounded-full mb-6 overflow-hidden">
+                                <div id="ic-progress-bar"
+                                    class="h-full bg-primary-fixed-dim transition-all duration-300 shadow-[0_0_10px_#00dbe9]"
+                                    style="width: 0%"></div>
+                            </div>
+                            <div class="flex items-center gap-3 text-primary-fixed-dim">
+                                <span class="material-symbols-outlined animate-spin text-2xl">refresh</span>
+                                <span id="ic-progress-message"
+                                    class="font-mono-label uppercase tracking-widest text-sm">Compressing to target KB...</span>
+                            </div>
+                        </div>
+
+                        <!-- Compression Setup State (post-upload, pre-generation) -->
+                        <div id="ic-setup-container" class="hidden w-full max-w-3xl flex flex-col items-center gap-6">
+                            <!-- Image Preview & File Metadata -->
+                            <div class="flex flex-col md:flex-row gap-6 w-full items-center">
+                                <div class="relative w-full md:w-1/2 aspect-video rounded-xl overflow-hidden bg-black/40 border border-white/10 flex items-center justify-center">
+                                    <img id="ic-image-original" class="max-w-full max-h-full object-contain" alt="Original Upload Preview" />
+                                </div>
+                                <div class="w-full md:w-1/2 flex flex-col gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl">
+                                    <h3 class="font-headline-md text-lg text-white border-b border-white/10 pb-2">Image Information</h3>
+                                    <div class="grid grid-cols-2 gap-4 text-xs font-mono-label">
+                                        <div>
+                                            <span class="text-on-surface-variant block text-[10px] uppercase">Original File Size</span>
+                                            <span id="ic-orig-size" class="text-primary-fixed font-bold text-base">500 KB</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-on-surface-variant block text-[10px] uppercase">Dimensions</span>
+                                            <span id="ic-orig-dims" class="text-white text-sm">1920 x 1080</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-on-surface-variant block text-[10px] uppercase">File Type</span>
+                                            <span id="ic-orig-type" class="text-white text-sm">IMAGE/JPEG</span>
+                                        </div>
+                                        <div>
+                                            <span class="text-on-surface-variant block text-[10px] uppercase">Status</span>
+                                            <span class="text-green-400 text-sm">Ready to Compress</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Target Size Configuration Form -->
+                            <div class="w-full p-6 bg-white/5 border border-white/10 rounded-2xl flex flex-col gap-5">
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                                    <div>
+                                        <label class="text-sm font-bold text-white block mb-1">Target File Size (KB)</label>
+                                        <p class="text-xs text-on-surface-variant">Enter your desired maximum file size in Kilobytes (KB)</p>
+                                    </div>
+                                    
+                                    <!-- Target KB Numerical Input Box -->
+                                    <div class="flex items-center gap-2">
+                                        <div class="relative">
+                                            <input id="ic-target-kb" type="number" min="10" max="50000" value="150"
+                                                class="w-36 bg-surface-container-high border border-primary-fixed/40 focus:border-primary-fixed text-white font-mono-label text-base font-bold rounded-xl py-2 px-3 pl-4 pr-12 outline-none shadow-[0_0_15px_rgba(0,219,233,0.15)] transition-all" />
+                                            <span class="absolute right-3 top-1/2 -translate-y-1/2 font-mono-label text-xs font-bold text-primary-fixed">KB</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Quick Presets Row -->
+                                <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-white/5">
+                                    <span class="text-[10px] font-label-caps text-on-surface-variant mr-2">Quick Presets:</span>
+                                    <button type="button" class="ic-preset-btn px-3 py-1.5 bg-white/5 border border-white/10 hover:border-primary-fixed/50 hover:bg-primary-fixed/10 rounded-lg text-xs font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all cursor-pointer" data-kb="50">50 KB</button>
+                                    <button type="button" class="ic-preset-btn px-3 py-1.5 bg-white/5 border border-white/10 hover:border-primary-fixed/50 hover:bg-primary-fixed/10 rounded-lg text-xs font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all cursor-pointer" data-kb="100">100 KB</button>
+                                    <button type="button" class="ic-preset-btn px-3 py-1.5 bg-primary-fixed/20 border border-primary-fixed/40 rounded-lg text-xs font-mono-label text-primary-fixed font-bold transition-all cursor-pointer" data-kb="150">150 KB</button>
+                                    <button type="button" class="ic-preset-btn px-3 py-1.5 bg-white/5 border border-white/10 hover:border-primary-fixed/50 hover:bg-primary-fixed/10 rounded-lg text-xs font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all cursor-pointer" data-kb="200">200 KB</button>
+                                    <button type="button" class="ic-preset-btn px-3 py-1.5 bg-white/5 border border-white/10 hover:border-primary-fixed/50 hover:bg-primary-fixed/10 rounded-lg text-xs font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all cursor-pointer" data-kb="half">50% Size</button>
+                                </div>
+
+                                <!-- Output Format Selector -->
+                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-3 border-t border-white/5">
+                                    <div class="flex items-center gap-3">
+                                        <span class="text-xs font-label-caps text-on-surface-variant">Output Format:</span>
+                                        <select id="ic-format-select" class="bg-surface-container border border-white/10 rounded-lg text-xs font-mono-label px-3 py-2 text-white focus:outline-none focus:border-primary-fixed cursor-pointer">
+                                            <option value="image/jpeg" selected>JPG (Best Compatibility)</option>
+                                            <option value="image/webp">WebP (High Efficiency)</option>
+                                            <option value="image/png">PNG (Lossless / Transparent)</option>
+                                        </select>
+                                    </div>
+                                    <button id="ic-btn-compress"
+                                        class="w-full sm:w-auto px-8 py-3 bg-primary-fixed-dim text-on-primary-fixed font-bold rounded-xl text-xs font-label-caps tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary-fixed-dim/20 flex items-center justify-center gap-2">
+                                        <span class="material-symbols-outlined text-lg">compress</span>
+                                        Compress Image
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Result State -->
+                        <div id="ic-result-container" class="hidden w-full max-w-4xl flex flex-col items-center gap-6">
+                            <!-- Comparison View -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                                <!-- Original Image Card -->
+                                <div class="glass-panel glint-border p-4 rounded-2xl flex flex-col gap-3 border border-white/10">
+                                    <div class="flex justify-between items-center px-1">
+                                        <span class="text-xs font-label-caps text-on-surface-variant">Original Image</span>
+                                        <span id="ic-result-orig-size" class="text-xs font-mono-label text-white/80 bg-white/10 px-2 py-0.5 rounded">500 KB</span>
+                                    </div>
+                                    <div class="relative aspect-video rounded-xl overflow-hidden bg-black/40 border border-white/5 flex items-center justify-center">
+                                        <img id="ic-result-orig-img" class="max-w-full max-h-full object-contain" alt="Original Image" />
+                                    </div>
+                                    <div class="text-[11px] font-mono-label text-on-surface-variant flex justify-between px-1">
+                                        <span id="ic-result-orig-dims">1920x1080 px</span>
+                                        <span>100% Quality</span>
+                                    </div>
+                                </div>
+
+                                <!-- Compressed Image Card -->
+                                <div class="glass-panel glint-border p-4 rounded-2xl flex flex-col gap-3 border border-primary-fixed/30 bg-primary-fixed/5">
+                                    <div class="flex justify-between items-center px-1">
+                                        <span class="text-xs font-label-caps text-primary-fixed font-bold flex items-center gap-1">
+                                            <span class="material-symbols-outlined text-sm">check_circle</span>
+                                            Compressed Image
+                                        </span>
+                                        <span id="ic-result-comp-size" class="text-xs font-mono-label text-on-primary-fixed bg-primary-fixed font-bold px-2 py-0.5 rounded shadow-[0_0_8px_#00dbe9]">148 KB</span>
+                                    </div>
+                                    <div class="relative aspect-video rounded-xl overflow-hidden bg-black/40 border border-primary-fixed/20 flex items-center justify-center">
+                                        <img id="ic-result-comp-img" class="max-w-full max-h-full object-contain" alt="Compressed Image Result" />
+                                    </div>
+                                    <div class="text-[11px] font-mono-label text-on-surface-variant flex justify-between px-1">
+                                        <span id="ic-result-comp-dims">1920x1080 px</span>
+                                        <span id="ic-result-quality" class="text-primary-fixed font-bold">Quality: 78%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Key Metrics Banner -->
+                            <div class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                                <div class="p-3 bg-black/20 rounded-xl border border-white/5">
+                                    <span class="text-[10px] font-label-caps text-on-surface-variant block mb-1">Target KB Requested</span>
+                                    <span id="ic-metric-target" class="text-lg font-bold font-mono-label text-white">150 KB</span>
+                                </div>
+                                <div class="p-3 bg-black/20 rounded-xl border border-white/5">
+                                    <span class="text-[10px] font-label-caps text-on-surface-variant block mb-1">Final Size Achieved</span>
+                                    <span id="ic-metric-final" class="text-lg font-bold font-mono-label text-primary-fixed">148.2 KB</span>
+                                </div>
+                                <div class="p-3 bg-black/20 rounded-xl border border-white/5">
+                                    <span class="text-[10px] font-label-caps text-on-surface-variant block mb-1">Space Reduction</span>
+                                    <span id="ic-metric-savings" class="text-lg font-bold font-mono-label text-green-400">-70.4%</span>
+                                </div>
+                                <div class="p-3 bg-black/20 rounded-xl border border-white/5">
+                                    <span class="text-[10px] font-label-caps text-on-surface-variant block mb-1">Output Format</span>
+                                    <span id="ic-metric-format" class="text-lg font-bold font-mono-label text-secondary">WEBP</span>
+                                </div>
+                            </div>
+
+                            <!-- Control Panel Actions -->
+                            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 w-full p-4 bg-white/5 border border-white/10 rounded-2xl">
+                                <!-- Re-target KB Inline -->
+                                <div class="flex items-center gap-3 w-full sm:w-auto">
+                                    <label class="text-xs font-label-caps text-on-surface-variant whitespace-nowrap">Change Target KB:</label>
+                                    <input id="ic-re-target-kb" type="number" min="10" max="50000" value="150"
+                                        class="w-28 bg-surface border border-white/20 text-white font-mono-label text-xs font-bold rounded-lg py-1.5 px-3 outline-none focus:border-primary-fixed" />
+                                    <button id="ic-btn-recompress" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-lg text-xs font-mono-label transition-all">Re-compress</button>
+                                </div>
+
+                                <div class="flex gap-3 w-full sm:w-auto justify-end">
+                                    <button id="ic-btn-download"
+                                        class="px-6 py-2.5 bg-primary-fixed-dim text-on-primary-fixed font-bold rounded-xl text-xs font-label-caps tracking-wider hover:brightness-110 active:scale-95 transition-all shadow-lg shadow-primary-fixed-dim/20 flex items-center gap-2">
+                                        <span class="material-symbols-outlined text-base">download</span>
+                                        Download Compressed Image
+                                    </button>
+                                    <button id="ic-btn-reset"
+                                        class="px-4 py-2.5 bg-white/5 border border-white/10 rounded-xl text-xs font-bold text-on-surface hover:bg-white/10 transition-all">
+                                        Upload Another
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- fallback view placeholder (empty) -->
+                <section id="view-placeholder" class="view-panel view-hidden"></section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Core Logic Scripts -->
+    <script src="app.js"></script>
+</body>
+
+</html>

@@ -206,8 +206,7 @@
                         <span class="material-symbols-outlined">notifications</span>
                     </button>
                     <div class="w-8 h-8 rounded-full overflow-hidden border border-white/20">
-                        <img class="w-full h-full object-cover" alt="User Profile"
-                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv3GvXx1Jn_B0d0lNfdKYM7dFqc7tZYrAcThEqbujbLtTiD_pZky3Y2u0YKy1FxOyzUidpRsllWaa9Y5MDDCS4-Lv5yMvpKncav2f5vaGklg6UzYUsmEYE7zTmYN2z0HAYbaYouKDcV134C0EhZZW_R1_wUDFikK5z9KiknSWcBvdjOZyE8H28zKJn6Z7cJW9bkATaAezbCPULI5luCRkFVqs9WAwMR_Bj7hUW5CyEuyNAvfG56A5H" />
+                        <img class="w-full h-full object-cover" alt="User Profile" src="./img/RAHUL.jpg" />
                     </div>
                 </div>
             </header>
@@ -307,7 +306,8 @@
                                 <h3
                                     class="font-headline-md text-xl mb-1 group-hover:text-primary-fixed transition-colors">
                                     Image Compressor</h3>
-                                <p class="text-on-surface-variant text-sm">Compress image file size to exact target KB size.
+                                <p class="text-on-surface-variant text-sm">Compress image file size to exact target KB
+                                    size.
                                 </p>
                             </div>
                         </div>
@@ -608,12 +608,16 @@
                         <div id="bg-processing-overlay"
                             class="hidden absolute inset-0 z-50 bg-[#050506]/80 flex flex-col items-center justify-center overflow-hidden rounded-3xl">
                             <!-- Live Preview Image -->
-                            <img id="bg-processing-img" class="absolute inset-0 w-full h-full object-contain opacity-40 blur-[2px]" />
+                            <img id="bg-processing-img"
+                                class="absolute inset-0 w-full h-full object-contain opacity-40 blur-[2px]" />
                             <!-- Scanning Laser -->
-                            <div id="bg-scanner-line" class="absolute left-0 right-0 h-[2px] bg-primary-fixed shadow-[0_0_20px_4px_#00dbe9] z-10" style="top: 0%"></div>
-                            
+                            <div id="bg-scanner-line"
+                                class="absolute left-0 right-0 h-[2px] bg-primary-fixed shadow-[0_0_20px_4px_#00dbe9] z-10"
+                                style="top: 0%"></div>
+
                             <!-- Progress Info -->
-                            <div class="z-20 flex flex-col items-center p-6 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 mt-20">
+                            <div
+                                class="z-20 flex flex-col items-center p-6 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 mt-20">
                                 <div class="w-64 h-1.5 bg-white/10 rounded-full mb-4 overflow-hidden">
                                     <div id="bg-progress-bar"
                                         class="h-full bg-primary-fixed-dim transition-all duration-300 shadow-[0_0_10px_#00dbe9]"
@@ -852,7 +856,8 @@
                                     class="text-sm font-label-caps text-on-surface-variant border-b border-white/10 pb-3 mb-4">
                                     Layers Stack</h3>
 
-                                <div id="ml-layers-container" class="flex-1 flex flex-col gap-4 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
+                                <div id="ml-layers-container"
+                                    class="flex-1 flex flex-col gap-4 overflow-y-auto max-h-[400px] pr-2 custom-scrollbar">
                                     <!-- Layers will be injected dynamically by app.js -->
                                 </div>
 
@@ -1014,7 +1019,8 @@
                     <div class="flex justify-between items-end flex-shrink-0">
                         <div>
                             <h1 class="font-display-lg text-headline-md text-primary-fixed mb-1">Image Compressor</h1>
-                            <p class="text-on-surface-variant">Compress image file size to exact target KB while preserving maximum visual clarity.</p>
+                            <p class="text-on-surface-variant">Compress image file size to exact target KB while
+                                preserving maximum visual clarity.</p>
                         </div>
                     </div>
 
@@ -1063,7 +1069,8 @@
                             <div class="flex items-center gap-3 text-primary-fixed-dim">
                                 <span class="material-symbols-outlined animate-spin text-2xl">refresh</span>
                                 <span id="ic-progress-message"
-                                    class="font-mono-label uppercase tracking-widest text-sm">Compressing to target KB...</span>
+                                    class="font-mono-label uppercase tracking-widest text-sm">Compressing to target
+                                    KB...</span>
                             </div>
                         </div>
 
@@ -1071,26 +1078,35 @@
                         <div id="ic-setup-container" class="hidden w-full max-w-3xl flex flex-col items-center gap-6">
                             <!-- Image Preview & File Metadata -->
                             <div class="flex flex-col md:flex-row gap-6 w-full items-center">
-                                <div class="relative w-full md:w-1/2 aspect-video rounded-xl overflow-hidden bg-black/40 border border-white/10 flex items-center justify-center">
-                                    <img id="ic-image-original" class="max-w-full max-h-full object-contain" alt="Original Upload Preview" />
+                                <div
+                                    class="relative w-full md:w-1/2 aspect-video rounded-xl overflow-hidden bg-black/40 border border-white/10 flex items-center justify-center">
+                                    <img id="ic-image-original" class="max-w-full max-h-full object-contain"
+                                        alt="Original Upload Preview" />
                                 </div>
-                                <div class="w-full md:w-1/2 flex flex-col gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl">
-                                    <h3 class="font-headline-md text-lg text-white border-b border-white/10 pb-2">Image Information</h3>
+                                <div
+                                    class="w-full md:w-1/2 flex flex-col gap-4 p-5 bg-white/5 border border-white/10 rounded-2xl">
+                                    <h3 class="font-headline-md text-lg text-white border-b border-white/10 pb-2">Image
+                                        Information</h3>
                                     <div class="grid grid-cols-2 gap-4 text-xs font-mono-label">
                                         <div>
-                                            <span class="text-on-surface-variant block text-[10px] uppercase">Original File Size</span>
-                                            <span id="ic-orig-size" class="text-primary-fixed font-bold text-base">500 KB</span>
+                                            <span class="text-on-surface-variant block text-[10px] uppercase">Original
+                                                File Size</span>
+                                            <span id="ic-orig-size" class="text-primary-fixed font-bold text-base">500
+                                                KB</span>
                                         </div>
                                         <div>
-                                            <span class="text-on-surface-variant block text-[10px] uppercase">Dimensions</span>
+                                            <span
+                                                class="text-on-surface-variant block text-[10px] uppercase">Dimensions</span>
                                             <span id="ic-orig-dims" class="text-white text-sm">1920 x 1080</span>
                                         </div>
                                         <div>
-                                            <span class="text-on-surface-variant block text-[10px] uppercase">File Type</span>
+                                            <span class="text-on-surface-variant block text-[10px] uppercase">File
+                                                Type</span>
                                             <span id="ic-orig-type" class="text-white text-sm">IMAGE/JPEG</span>
                                         </div>
                                         <div>
-                                            <span class="text-on-surface-variant block text-[10px] uppercase">Status</span>
+                                            <span
+                                                class="text-on-surface-variant block text-[10px] uppercase">Status</span>
                                             <span class="text-green-400 text-sm">Ready to Compress</span>
                                         </div>
                                     </div>
@@ -1099,37 +1115,55 @@
 
                             <!-- Target Size Configuration Form -->
                             <div class="w-full p-6 bg-white/5 border border-white/10 rounded-2xl flex flex-col gap-5">
-                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                                <div
+                                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                                     <div>
-                                        <label class="text-sm font-bold text-white block mb-1">Target File Size (KB)</label>
-                                        <p class="text-xs text-on-surface-variant">Enter your desired maximum file size in Kilobytes (KB)</p>
+                                        <label class="text-sm font-bold text-white block mb-1">Target File Size
+                                            (KB)</label>
+                                        <p class="text-xs text-on-surface-variant">Enter your desired maximum file size
+                                            in Kilobytes (KB)</p>
                                     </div>
-                                    
+
                                     <!-- Target KB Numerical Input Box -->
                                     <div class="flex items-center gap-2">
                                         <div class="relative">
                                             <input id="ic-target-kb" type="number" min="10" max="50000" value="150"
                                                 class="w-36 bg-surface-container-high border border-primary-fixed/40 focus:border-primary-fixed text-white font-mono-label text-base font-bold rounded-xl py-2 px-3 pl-4 pr-12 outline-none shadow-[0_0_15px_rgba(0,219,233,0.15)] transition-all" />
-                                            <span class="absolute right-3 top-1/2 -translate-y-1/2 font-mono-label text-xs font-bold text-primary-fixed">KB</span>
+                                            <span
+                                                class="absolute right-3 top-1/2 -translate-y-1/2 font-mono-label text-xs font-bold text-primary-fixed">KB</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Quick Presets Row -->
                                 <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-white/5">
-                                    <span class="text-[10px] font-label-caps text-on-surface-variant mr-2">Quick Presets:</span>
-                                    <button type="button" class="ic-preset-btn px-3 py-1.5 bg-white/5 border border-white/10 hover:border-primary-fixed/50 hover:bg-primary-fixed/10 rounded-lg text-xs font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all cursor-pointer" data-kb="50">50 KB</button>
-                                    <button type="button" class="ic-preset-btn px-3 py-1.5 bg-white/5 border border-white/10 hover:border-primary-fixed/50 hover:bg-primary-fixed/10 rounded-lg text-xs font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all cursor-pointer" data-kb="100">100 KB</button>
-                                    <button type="button" class="ic-preset-btn px-3 py-1.5 bg-primary-fixed/20 border border-primary-fixed/40 rounded-lg text-xs font-mono-label text-primary-fixed font-bold transition-all cursor-pointer" data-kb="150">150 KB</button>
-                                    <button type="button" class="ic-preset-btn px-3 py-1.5 bg-white/5 border border-white/10 hover:border-primary-fixed/50 hover:bg-primary-fixed/10 rounded-lg text-xs font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all cursor-pointer" data-kb="200">200 KB</button>
-                                    <button type="button" class="ic-preset-btn px-3 py-1.5 bg-white/5 border border-white/10 hover:border-primary-fixed/50 hover:bg-primary-fixed/10 rounded-lg text-xs font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all cursor-pointer" data-kb="half">50% Size</button>
+                                    <span class="text-[10px] font-label-caps text-on-surface-variant mr-2">Quick
+                                        Presets:</span>
+                                    <button type="button"
+                                        class="ic-preset-btn px-3 py-1.5 bg-white/5 border border-white/10 hover:border-primary-fixed/50 hover:bg-primary-fixed/10 rounded-lg text-xs font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all cursor-pointer"
+                                        data-kb="50">50 KB</button>
+                                    <button type="button"
+                                        class="ic-preset-btn px-3 py-1.5 bg-white/5 border border-white/10 hover:border-primary-fixed/50 hover:bg-primary-fixed/10 rounded-lg text-xs font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all cursor-pointer"
+                                        data-kb="100">100 KB</button>
+                                    <button type="button"
+                                        class="ic-preset-btn px-3 py-1.5 bg-primary-fixed/20 border border-primary-fixed/40 rounded-lg text-xs font-mono-label text-primary-fixed font-bold transition-all cursor-pointer"
+                                        data-kb="150">150 KB</button>
+                                    <button type="button"
+                                        class="ic-preset-btn px-3 py-1.5 bg-white/5 border border-white/10 hover:border-primary-fixed/50 hover:bg-primary-fixed/10 rounded-lg text-xs font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all cursor-pointer"
+                                        data-kb="200">200 KB</button>
+                                    <button type="button"
+                                        class="ic-preset-btn px-3 py-1.5 bg-white/5 border border-white/10 hover:border-primary-fixed/50 hover:bg-primary-fixed/10 rounded-lg text-xs font-mono-label text-on-surface-variant hover:text-primary-fixed transition-all cursor-pointer"
+                                        data-kb="half">50% Size</button>
                                 </div>
 
                                 <!-- Output Format Selector -->
-                                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-3 border-t border-white/5">
+                                <div
+                                    class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-3 border-t border-white/5">
                                     <div class="flex items-center gap-3">
-                                        <span class="text-xs font-label-caps text-on-surface-variant">Output Format:</span>
-                                        <select id="ic-format-select" class="bg-surface-container border border-white/10 rounded-lg text-xs font-mono-label px-3 py-2 text-white focus:outline-none focus:border-primary-fixed cursor-pointer">
+                                        <span class="text-xs font-label-caps text-on-surface-variant">Output
+                                            Format:</span>
+                                        <select id="ic-format-select"
+                                            class="bg-surface-container border border-white/10 rounded-lg text-xs font-mono-label px-3 py-2 text-white focus:outline-none focus:border-primary-fixed cursor-pointer">
                                             <option value="image/jpeg" selected>JPG (Best Compatibility)</option>
                                             <option value="image/webp">WebP (High Efficiency)</option>
                                             <option value="image/png">PNG (Lossless / Transparent)</option>
@@ -1149,67 +1183,95 @@
                             <!-- Comparison View -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
                                 <!-- Original Image Card -->
-                                <div class="glass-panel glint-border p-4 rounded-2xl flex flex-col gap-3 border border-white/10">
+                                <div
+                                    class="glass-panel glint-border p-4 rounded-2xl flex flex-col gap-3 border border-white/10">
                                     <div class="flex justify-between items-center px-1">
-                                        <span class="text-xs font-label-caps text-on-surface-variant">Original Image</span>
-                                        <span id="ic-result-orig-size" class="text-xs font-mono-label text-white/80 bg-white/10 px-2 py-0.5 rounded">500 KB</span>
+                                        <span class="text-xs font-label-caps text-on-surface-variant">Original
+                                            Image</span>
+                                        <span id="ic-result-orig-size"
+                                            class="text-xs font-mono-label text-white/80 bg-white/10 px-2 py-0.5 rounded">500
+                                            KB</span>
                                     </div>
-                                    <div class="relative aspect-video rounded-xl overflow-hidden bg-black/40 border border-white/5 flex items-center justify-center">
-                                        <img id="ic-result-orig-img" class="max-w-full max-h-full object-contain" alt="Original Image" />
+                                    <div
+                                        class="relative aspect-video rounded-xl overflow-hidden bg-black/40 border border-white/5 flex items-center justify-center">
+                                        <img id="ic-result-orig-img" class="max-w-full max-h-full object-contain"
+                                            alt="Original Image" />
                                     </div>
-                                    <div class="text-[11px] font-mono-label text-on-surface-variant flex justify-between px-1">
+                                    <div
+                                        class="text-[11px] font-mono-label text-on-surface-variant flex justify-between px-1">
                                         <span id="ic-result-orig-dims">1920x1080 px</span>
                                         <span>100% Quality</span>
                                     </div>
                                 </div>
 
                                 <!-- Compressed Image Card -->
-                                <div class="glass-panel glint-border p-4 rounded-2xl flex flex-col gap-3 border border-primary-fixed/30 bg-primary-fixed/5">
+                                <div
+                                    class="glass-panel glint-border p-4 rounded-2xl flex flex-col gap-3 border border-primary-fixed/30 bg-primary-fixed/5">
                                     <div class="flex justify-between items-center px-1">
-                                        <span class="text-xs font-label-caps text-primary-fixed font-bold flex items-center gap-1">
+                                        <span
+                                            class="text-xs font-label-caps text-primary-fixed font-bold flex items-center gap-1">
                                             <span class="material-symbols-outlined text-sm">check_circle</span>
                                             Compressed Image
                                         </span>
-                                        <span id="ic-result-comp-size" class="text-xs font-mono-label text-on-primary-fixed bg-primary-fixed font-bold px-2 py-0.5 rounded shadow-[0_0_8px_#00dbe9]">148 KB</span>
+                                        <span id="ic-result-comp-size"
+                                            class="text-xs font-mono-label text-on-primary-fixed bg-primary-fixed font-bold px-2 py-0.5 rounded shadow-[0_0_8px_#00dbe9]">148
+                                            KB</span>
                                     </div>
-                                    <div class="relative aspect-video rounded-xl overflow-hidden bg-black/40 border border-primary-fixed/20 flex items-center justify-center">
-                                        <img id="ic-result-comp-img" class="max-w-full max-h-full object-contain" alt="Compressed Image Result" />
+                                    <div
+                                        class="relative aspect-video rounded-xl overflow-hidden bg-black/40 border border-primary-fixed/20 flex items-center justify-center">
+                                        <img id="ic-result-comp-img" class="max-w-full max-h-full object-contain"
+                                            alt="Compressed Image Result" />
                                     </div>
-                                    <div class="text-[11px] font-mono-label text-on-surface-variant flex justify-between px-1">
+                                    <div
+                                        class="text-[11px] font-mono-label text-on-surface-variant flex justify-between px-1">
                                         <span id="ic-result-comp-dims">1920x1080 px</span>
-                                        <span id="ic-result-quality" class="text-primary-fixed font-bold">Quality: 78%</span>
+                                        <span id="ic-result-quality" class="text-primary-fixed font-bold">Quality:
+                                            78%</span>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Key Metrics Banner -->
-                            <div class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+                            <div
+                                class="w-full p-5 bg-white/5 border border-white/10 rounded-2xl grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
                                 <div class="p-3 bg-black/20 rounded-xl border border-white/5">
-                                    <span class="text-[10px] font-label-caps text-on-surface-variant block mb-1">Target KB Requested</span>
-                                    <span id="ic-metric-target" class="text-lg font-bold font-mono-label text-white">150 KB</span>
+                                    <span class="text-[10px] font-label-caps text-on-surface-variant block mb-1">Target
+                                        KB Requested</span>
+                                    <span id="ic-metric-target" class="text-lg font-bold font-mono-label text-white">150
+                                        KB</span>
                                 </div>
                                 <div class="p-3 bg-black/20 rounded-xl border border-white/5">
-                                    <span class="text-[10px] font-label-caps text-on-surface-variant block mb-1">Final Size Achieved</span>
-                                    <span id="ic-metric-final" class="text-lg font-bold font-mono-label text-primary-fixed">148.2 KB</span>
+                                    <span class="text-[10px] font-label-caps text-on-surface-variant block mb-1">Final
+                                        Size Achieved</span>
+                                    <span id="ic-metric-final"
+                                        class="text-lg font-bold font-mono-label text-primary-fixed">148.2 KB</span>
                                 </div>
                                 <div class="p-3 bg-black/20 rounded-xl border border-white/5">
-                                    <span class="text-[10px] font-label-caps text-on-surface-variant block mb-1">Space Reduction</span>
-                                    <span id="ic-metric-savings" class="text-lg font-bold font-mono-label text-green-400">-70.4%</span>
+                                    <span class="text-[10px] font-label-caps text-on-surface-variant block mb-1">Space
+                                        Reduction</span>
+                                    <span id="ic-metric-savings"
+                                        class="text-lg font-bold font-mono-label text-green-400">-70.4%</span>
                                 </div>
                                 <div class="p-3 bg-black/20 rounded-xl border border-white/5">
-                                    <span class="text-[10px] font-label-caps text-on-surface-variant block mb-1">Output Format</span>
-                                    <span id="ic-metric-format" class="text-lg font-bold font-mono-label text-secondary">WEBP</span>
+                                    <span class="text-[10px] font-label-caps text-on-surface-variant block mb-1">Output
+                                        Format</span>
+                                    <span id="ic-metric-format"
+                                        class="text-lg font-bold font-mono-label text-secondary">WEBP</span>
                                 </div>
                             </div>
 
                             <!-- Control Panel Actions -->
-                            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 w-full p-4 bg-white/5 border border-white/10 rounded-2xl">
+                            <div
+                                class="flex flex-col sm:flex-row items-center justify-between gap-4 w-full p-4 bg-white/5 border border-white/10 rounded-2xl">
                                 <!-- Re-target KB Inline -->
                                 <div class="flex items-center gap-3 w-full sm:w-auto">
-                                    <label class="text-xs font-label-caps text-on-surface-variant whitespace-nowrap">Change Target KB:</label>
+                                    <label
+                                        class="text-xs font-label-caps text-on-surface-variant whitespace-nowrap">Change
+                                        Target KB:</label>
                                     <input id="ic-re-target-kb" type="number" min="10" max="50000" value="150"
                                         class="w-28 bg-surface border border-white/20 text-white font-mono-label text-xs font-bold rounded-lg py-1.5 px-3 outline-none focus:border-primary-fixed" />
-                                    <button id="ic-btn-recompress" class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-lg text-xs font-mono-label transition-all">Re-compress</button>
+                                    <button id="ic-btn-recompress"
+                                        class="px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white font-bold rounded-lg text-xs font-mono-label transition-all">Re-compress</button>
                                 </div>
 
                                 <div class="flex gap-3 w-full sm:w-auto justify-end">
